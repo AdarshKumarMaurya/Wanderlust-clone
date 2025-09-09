@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express=require("express");
 const mongoose=require("mongoose");
 const app=express();
@@ -17,7 +19,7 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use("/listing",listingRoute);
 
-const MONGO_URL = "mongodb+srv://adarsh63930:Adarsh63930@zerodhaclonecluster.puse4jx.mongodb.net/airbnd?retryWrites=true&w=majority&appName=ZerodhaCloneCluster";
+const MONGO_URL = process.env.MONGO_URL;
 
 main()
   .then(() => {
@@ -33,7 +35,7 @@ async function main() {
 
 
 app.route("/").get((req,res)=>{
-    res.status(200).send("<h1>Jaygurudev nam prabhu ka..</h1>");
+    res.status(200).send("<h1>I am root.</h1>");
 });
 app.listen(8080,()=>{
     console.log("connected..");

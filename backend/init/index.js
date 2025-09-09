@@ -1,8 +1,10 @@
+require('dotenv').config();
+
 const mongoose = require("mongoose");
 const initData = require("./data.js");
 const Listing = require("../models/listing.js");
 
-const MONGO_URL = "mongodb+srv://adarsh63930:Adarsh63930@zerodhaclonecluster.puse4jx.mongodb.net/airbnd?retryWrites=true&w=majority&appName=ZerodhaCloneCluster";
+const MONGO_URL = process.env.MONGO_URL;
 
 main()
   .then(() => {
